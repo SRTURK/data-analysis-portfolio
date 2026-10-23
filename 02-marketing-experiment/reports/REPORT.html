@@ -1,0 +1,323 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>营销实验效果评估与人群策略</title><style>body{font:16px/1.8 "Microsoft YaHei",system-ui,sans-serif;color:#213547;background:#f5f7fa;margin:0}main{max-width:1080px;margin:36px auto;padding:48px;background:white;border-top:7px solid #176b87}h1{font-size:32px;line-height:1.4}h2{margin-top:40px;color:#176b87}table{display:block;overflow:auto;border-collapse:collapse;font-size:13px;width:100%}th,td{padding:9px 12px;border-bottom:1px solid #dce4ea;text-align:left;white-space:nowrap}th{background:#edf5f8}img{max-width:100%;height:auto}a{color:#176b87}blockquote{margin:18px 0;padding:8px 22px;background:#edf5f8;border-left:4px solid #176b87}code{background:#eef2f5;padding:2px 5px}pre{overflow:auto;padding:16px;background:#eef2f5}@media print{main{margin:0;padding:10px}body{background:white}h2{break-after:avoid}img,table{break-inside:avoid}}</style><main><h1>营销实验效果评估与人群策略</h1>
+<p>完成日期：2026-10-23 · 公开随机实验复盘 · 50% 独立策略验证样本</p>
+<h2>决策结论</h2>
+<ol>
+<li><strong>64,000 名客户</strong>的三组随机实验中，男装邮件相对不发邮件，两周人均消费增加 <strong>$0.770</strong>（95% CI <strong>[0.485, 1.055]</strong>），女装邮件增加 <strong>$0.424</strong>（95% CI <strong>[0.169, 0.680]</strong>）。主检验 Holm 校正 p 值分别为 <strong>2.33e-07</strong> 和 <strong>0.00113</strong>。</li>
+<li>discovery 样本选出的最佳固定策略为 <strong>Mens E-Mail</strong>。冻结的人群策略相对它，在 validation 样本的人均消费差为 <strong>$-0.033</strong>，95% CI <strong>[-0.316, 0.250]</strong>。</li>
+<li><strong>人群策略未证明优于 discovery 选出的固定策略；优先保留简单方案并继续验证。</strong> 不能凭训练样本中某些分组均值更高就承诺个性化投放有效。</li>
+</ol>
+<h2>数据、质量与设计</h2>
+<p>来源：<a href="https://blog.minethatdata.com/2008/03/minethatdata-e-mail-analytics-and-data.html">Kevin Hillstrom 原始数据发布</a>。原始下载、大小和 SHA256 见根目录 data_manifest.json。该数据发布于 2008 年，结论仅针对该历史实验；不能外推到今日中国互联网营销。</p>
+<p>邮件内容分为男装、女装；这不是客户性别。实验前客户特征和实验后两周结果分开使用。全部未购买客户的 spend=0 保留在分母中；以购买客户为条件计算的消费均值仅供描述。</p>
+<ul>
+<li>三组人数：{'No E-Mail': 21306, 'Mens E-Mail': 21307, 'Womens E-Mail': 21387}。1:1:1 SRM 卡方检验 p=0.9037，数值与分类基线特征最大绝对标准化差异为 0.0137。平衡检查不能证明一切实验风险都不存在。</li>
+<li><strong>14 项数据与划分断言通过</strong>。原数据无客户 ID，以源文件行号保持可复现对应；相同特征/结果行不代表重复客户，未盲目去重。</li>
+<li>方案见 ANALYSIS_PLAN.md，实施前冻结，但属于公开历史数据的回顾性方案，不声称原始预注册或自己上线实验。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">segment</th>
+<th style="text-align: right;">customers</th>
+<th style="text-align: right;">visitors</th>
+<th style="text-align: right;">visit_rate</th>
+<th style="text-align: right;">purchasers</th>
+<th style="text-align: right;">conversion_rate</th>
+<th style="text-align: right;">revenue</th>
+<th style="text-align: right;">revenue_per_assigned_customer</th>
+<th style="text-align: right;">spend_variance</th>
+<th style="text-align: right;">spend_per_buyer_descriptive_only</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: right;">21307</td>
+<td style="text-align: right;">3894.0000</td>
+<td style="text-align: right;">0.1828</td>
+<td style="text-align: right;">267.0000</td>
+<td style="text-align: right;">0.0125</td>
+<td style="text-align: right;">30311.6900</td>
+<td style="text-align: right;">1.4226</td>
+<td style="text-align: right;">315.2118</td>
+<td style="text-align: right;">113.5269</td>
+</tr>
+<tr>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: right;">21306</td>
+<td style="text-align: right;">2262.0000</td>
+<td style="text-align: right;">0.1062</td>
+<td style="text-align: right;">122.0000</td>
+<td style="text-align: right;">0.0057</td>
+<td style="text-align: right;">13908.3300</td>
+<td style="text-align: right;">0.6528</td>
+<td style="text-align: right;">134.2864</td>
+<td style="text-align: right;">114.0027</td>
+</tr>
+<tr>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: right;">21387</td>
+<td style="text-align: right;">3238.0000</td>
+<td style="text-align: right;">0.1514</td>
+<td style="text-align: right;">189.0000</td>
+<td style="text-align: right;">0.0088</td>
+<td style="text-align: right;">23038.1100</td>
+<td style="text-align: right;">1.0772</td>
+<td style="text-align: right;">228.4967</td>
+<td style="text-align: right;">121.8948</td>
+</tr>
+</tbody>
+</table>
+<h2>平均处理效果</h2>
+<p><img alt="平均效果" src="treatment_effects.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">arm</th>
+<th style="text-align: left;">control</th>
+<th style="text-align: left;">metric</th>
+<th style="text-align: right;">effect</th>
+<th style="text-align: right;">ci_low</th>
+<th style="text-align: right;">ci_high</th>
+<th style="text-align: right;">p_holm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: left;">spend</td>
+<td style="text-align: right;">0.769827</td>
+<td style="text-align: right;">0.485140</td>
+<td style="text-align: right;">1.054515</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: left;">conversion</td>
+<td style="text-align: right;">0.006805</td>
+<td style="text-align: right;">0.005000</td>
+<td style="text-align: right;">0.008610</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: left;">visit</td>
+<td style="text-align: right;">0.076590</td>
+<td style="text-align: right;">0.069953</td>
+<td style="text-align: right;">0.083226</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: left;">spend</td>
+<td style="text-align: right;">0.424412</td>
+<td style="text-align: right;">0.168957</td>
+<td style="text-align: right;">0.679868</td>
+<td style="text-align: right;">0.001129</td>
+</tr>
+<tr>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: left;">conversion</td>
+<td style="text-align: right;">0.003111</td>
+<td style="text-align: right;">0.001499</td>
+<td style="text-align: right;">0.004724</td>
+<td style="text-align: right;">0.000156</td>
+</tr>
+<tr>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: left;">visit</td>
+<td style="text-align: right;">0.045233</td>
+<td style="text-align: right;">0.038893</td>
+<td style="text-align: right;">0.051573</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">spend</td>
+<td style="text-align: right;">0.345415</td>
+<td style="text-align: right;">0.032561</td>
+<td style="text-align: right;">0.658268</td>
+<td style="text-align: right;">0.030469</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">conversion</td>
+<td style="text-align: right;">0.003694</td>
+<td style="text-align: right;">0.001743</td>
+<td style="text-align: right;">0.005644</td>
+<td style="text-align: right;">0.000412</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">visit</td>
+<td style="text-align: right;">0.031356</td>
+<td style="text-align: right;">0.024285</td>
+<td style="text-align: right;">0.038428</td>
+<td style="text-align: right;">0.000000</td>
+</tr>
+</tbody>
+</table>
+<p>spend 单位为美元/被分配客户；conversion、visit 的 effect 为概率差，乘 100 得到百分点。相对提升另见 treatment_effects.csv。Welch 均值差检验用于金额与二元指标，大样本二元均值差采用渐近近似。CI 为点态 95%；显著性用对应检验族的 Holm p 值，两者含义不同。</p>
+<p>主检验族为两项 spend vs control；四项辅助指标比较单独校正；三项男装 vs 女装直接比较单独列为探索性检验族。未通过“某组显著、另一组不显著”推断组间差异。</p>
+<p>长尾消费金额补充用户级组内独立重采样 2,000 次：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">arm</th>
+<th style="text-align: left;">control</th>
+<th style="text-align: right;">bootstrap_ci_low</th>
+<th style="text-align: right;">bootstrap_ci_high</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: right;">0.4873</td>
+<td style="text-align: right;">1.0647</td>
+</tr>
+<tr>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: left;">No E-Mail</td>
+<td style="text-align: right;">0.1724</td>
+<td style="text-align: right;">0.6792</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: right;">0.0276</td>
+<td style="text-align: right;">0.6551</td>
+</tr>
+</tbody>
+</table>
+<h2>人群策略：先学习，再验证</h2>
+<p>按实验组分层，用固定随机种子 20261023 切分 discovery / validation，各 32,000 人。只用实验前购买类型在 discovery 中选择人均消费最高动作，并保存规则；validation 不参与选择。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">purchase_type</th>
+<th style="text-align: left;">chosen_arm</th>
+<th style="text-align: right;">discovery_customers</th>
+<th style="text-align: right;">discovery_no_email_mean</th>
+<th style="text-align: right;">discovery_mens_mean</th>
+<th style="text-align: right;">discovery_womens_mean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">both</td>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: right;">3245</td>
+<td style="text-align: right;">0.7394</td>
+<td style="text-align: right;">3.6340</td>
+<td style="text-align: right;">1.5593</td>
+</tr>
+<tr>
+<td style="text-align: left;">mens_only</td>
+<td style="text-align: left;">Mens E-Mail</td>
+<td style="text-align: right;">14408</td>
+<td style="text-align: right;">0.7957</td>
+<td style="text-align: right;">1.5666</td>
+<td style="text-align: right;">0.9130</td>
+</tr>
+<tr>
+<td style="text-align: left;">womens_only</td>
+<td style="text-align: left;">Womens E-Mail</td>
+<td style="text-align: right;">14347</td>
+<td style="text-align: right;">0.4853</td>
+<td style="text-align: right;">1.0018</td>
+<td style="text-align: right;">1.1173</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="策略验证" src="policy_holdout.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">comparison</th>
+<th style="text-align: right;">effect</th>
+<th style="text-align: right;">ci_low</th>
+<th style="text-align: right;">ci_high</th>
+<th style="text-align: right;">p_raw</th>
+<th style="text-align: right;">p_holm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">personalized vs No E-Mail</td>
+<td style="text-align: right;">0.6299</td>
+<td style="text-align: right;">0.2546</td>
+<td style="text-align: right;">1.0053</td>
+<td style="text-align: right;">0.0010</td>
+<td style="text-align: right;">0.0030</td>
+</tr>
+<tr>
+<td style="text-align: left;">personalized vs Mens E-Mail</td>
+<td style="text-align: right;">-0.0335</td>
+<td style="text-align: right;">-0.3164</td>
+<td style="text-align: right;">0.2495</td>
+<td style="text-align: right;">0.8167</td>
+<td style="text-align: right;">0.8167</td>
+</tr>
+<tr>
+<td style="text-align: left;">personalized vs Womens E-Mail</td>
+<td style="text-align: right;">0.1945</td>
+<td style="text-align: right;">-0.1401</td>
+<td style="text-align: right;">0.5291</td>
+<td style="text-align: right;">0.2545</td>
+<td style="text-align: right;">0.5091</td>
+</tr>
+</tbody>
+</table>
+<p>策略评估使用已知随机分配概率 1/3 的 Horvitz–Thompson/IPW：只有客户实际接受的处理与策略推荐一致时，贡献为 3×消费金额，否则为零。与固定策略比较时对同一客户的两个伪结果做差，计算配对标准误；没有把相关策略当独立样本比较。</p>
+<p>已知分配概率来自原始设计；实际分组人数并非恰好相等，有限样本 IPW 值不必等于直接组均值。金额长尾及分群样本少使验证区间较宽。分组点估计不等同于已证明处理效果异质性；未进行正式交互检验或宣称模型识别出“必被说服”的个人。</p>
+<h2>成本敏感性与下一轮实验</h2>
+<p>真实成本和毛利缺失，按假设毛利率 20%/40%/60%、单次触达成本 $0/$0.05/$0.10/$0.20 输出 cost_sensitivity.csv。净增益 = 消费增量×假设毛利率−假设触达成本；零成本不代表生产触达实际免费。以 40% 毛利率为例，男装邮件点估计的单次触达盈亏平衡成本为 <strong>$0.308</strong>，不是实测利润。</p>
+<p>下一轮实验样本量的正态近似规划（每组人数；两侧 alpha=.025，power=.80）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">metric</th>
+<th style="text-align: right;">target_absolute_effect</th>
+<th style="text-align: right;">alpha_two_sided</th>
+<th style="text-align: right;">power</th>
+<th style="text-align: right;">required_per_arm_approx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">spend</td>
+<td style="text-align: right;">0.2000</td>
+<td style="text-align: right;">0.0250</td>
+<td style="text-align: right;">0.8000</td>
+<td style="text-align: right;">63820</td>
+</tr>
+<tr>
+<td style="text-align: left;">conversion</td>
+<td style="text-align: right;">0.0020</td>
+<td style="text-align: right;">0.0250</td>
+<td style="text-align: right;">0.8000</td>
+<td style="text-align: right;">27059</td>
+</tr>
+<tr>
+<td style="text-align: left;">visit</td>
+<td style="text-align: right;">0.0100</td>
+<td style="text-align: right;">0.0250</td>
+<td style="text-align: right;">0.8000</td>
+<td style="text-align: right;">18041</td>
+</tr>
+</tbody>
+</table>
+<p>规划使用本次对照组方差作为未来基线近似，未计算误导性的“事后 observed power”；正式新实验需重新确认人群、转化基线与金额分布。spend 的目标差为美元，二元指标的目标差为概率。</p>
+<p>建议继续验证 discovery 选出的简单固定策略与不发邮件，同时增加退订、投诉和长期复购护栏。两周数据不能回答长期效果。</p>
+<h2>复现</h2>
+<p>在根目录运行 <code>python run_all.py --project experiment</code>。原始 CSV → 数据质量与分层划分 → SQL 分组指标 → 总体统计推断 → discovery 冻结策略 → validation 评估 → 图表与本报告。全部分析离线运行，不需要 LLM API 或密钥。</p></main></html>

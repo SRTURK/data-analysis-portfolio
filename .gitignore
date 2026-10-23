@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*/data/raw/
+*/data/processed/
+*.duckdb*
+.pytest_cache/
+简历描述与面试准备.md

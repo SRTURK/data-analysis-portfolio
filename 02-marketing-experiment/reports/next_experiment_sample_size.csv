@@ -1,0 +1,4 @@
+﻿metric,target_absolute_effect,alpha_two_sided,power,required_per_arm_approx
+spend,0.2,0.025,0.8,63820
+conversion,0.002,0.025,0.8,27059
+visit,0.01,0.025,0.8,18041

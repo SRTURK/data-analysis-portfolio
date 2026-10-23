@@ -1,0 +1,15 @@
+﻿check,passed,detail
+row count,True,64000
+no missing values,True,0
+three treatment arms,True,"['Mens E-Mail', 'No E-Mail', 'Womens E-Mail']"
+visit binary,True,"[np.int64(0), np.int64(1)]"
+conversion binary,True,"[np.int64(0), np.int64(1)]"
+mens binary,True,"[np.int64(0), np.int64(1)]"
+womens binary,True,"[np.int64(0), np.int64(1)]"
+newbie binary,True,"[np.int64(0), np.int64(1)]"
+nonnegative spend,True,0.0
+conversion implies visit,True,0
+positive spend equals conversion,True,0
+disjoint partition,True,32000 / 32000
+partition covers all,True,64000
+policy uses available arms,True,"{'both': 'Mens E-Mail', 'mens_only': 'Mens E-Mail', 'womens_only': 'Womens E-Mail'}"

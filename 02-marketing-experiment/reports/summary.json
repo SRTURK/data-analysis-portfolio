@@ -1,0 +1,29 @@
+{
+  "customers": 64000,
+  "srm_p": 0.9036929575604196,
+  "max_abs_baseline_smd": 0.01365900039927897,
+  "mens_spend_lift": 0.7698271558945368,
+  "mens_ci": [
+    0.4851397325684076,
+    1.0545145792206658
+  ],
+  "womens_spend_lift": 0.4244122159365967,
+  "womens_ci": [
+    0.16895678988377877,
+    0.6798676419894147
+  ],
+  "frozen_policy": {
+    "both": "Mens E-Mail",
+    "mens_only": "Mens E-Mail",
+    "womens_only": "Womens E-Mail"
+  },
+  "discovery_best_fixed": "Mens E-Mail",
+  "policy_vs_best_fixed_effect": -0.03345562499999999,
+  "policy_vs_best_fixed_ci": [
+    -0.31642194144393004,
+    0.24951069144393007
+  ],
+  "policy_vs_best_fixed_p_holm": 0.8167443237323695,
+  "personalization_supported": false,
+  "checks_passed": 14
+}

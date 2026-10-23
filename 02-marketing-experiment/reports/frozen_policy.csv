@@ -1,0 +1,4 @@
+﻿purchase_type,chosen_arm,discovery_customers,discovery_no_email_mean,discovery_mens_mean,discovery_womens_mean
+both,Mens E-Mail,3245,0.7393527803099362,3.6339782016348776,1.5593123209169053
+mens_only,Mens E-Mail,14408,0.7956952539550375,1.5665738219895289,0.913023400289915
+womens_only,Womens E-Mail,14347,0.4852630471380471,1.001756332426209,1.1173100871731008
