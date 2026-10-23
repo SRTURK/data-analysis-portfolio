@@ -1,5 +1,12 @@
 # 数据分析实习作品集
 
+两个项目已拆分为可独立安装、运行和测试的仓库，建议直接访问：
+
+- [电商履约与客户体验诊断 · olist-operations-analysis](https://github.com/SRTURK/olist-operations-analysis)
+- [营销实验效果评估与人群策略 · marketing-experiment-analysis](https://github.com/SRTURK/marketing-experiment-analysis)
+
+本仓库保留最初的合并版本与作品集索引；后续项目更新以各独立仓库为准。
+
 两个完整、可复现的公开数据分析项目，覆盖 SQL 业务诊断和随机实验效果评估。
 
 | 项目 | 展示能力 | 阅读入口 |
